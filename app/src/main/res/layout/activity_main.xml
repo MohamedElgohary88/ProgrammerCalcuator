@@ -5,16 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/red_50"
-    tools:context=".MainActivity">
-
+    tools:context="com.example.programmercalculator.MainActivity">
 
     <TextView
         android:id="@+id/text_input"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/margin_big"
         android:background="@drawable/text_view_background"
-        android:padding="8dp"
+        android:padding="@dimen/padding_under_mid"
+        android:textSize="@dimen/big_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/margin_big"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/left_bracket"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,31 +36,31 @@
             android:id="@+id/hex_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="32dp"
-            android:text="Hex"
+            android:text="@string/hex"
             tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
             android:id="@+id/dec_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="32dp"
-            android:layout_marginTop="8dp"
-            android:text="Dec"
+            android:layout_marginTop="@dimen/margin_mid"
+            android:text="@string/dec"
             tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
             android:id="@+id/oct_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="32dp"
-            android:layout_marginTop="8dp"
-            android:text="Oct"
+            android:layout_marginTop="@dimen/margin_mid"
+            android:text="@string/oct"
             tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
             android:id="@+id/bin_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="32dp"
-            android:text="Bin"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_mid"
+            android:text="@string/bin"
             tools:ignore="TouchTargetSizeCheck" />
     </RadioGroup>
 
@@ -69,70 +69,74 @@
         android:layout_width="0dp"
         android:layout_height="32dp"
         android:gravity="center|start"
-        android:padding="4dp"
-        android:paddingStart="16dp"
-        android:hint="0"
+        android:hint="@string/_0"
+        android:padding="@dimen/padding_small"
+        android:paddingStart="@dimen/padding_mid"
         android:textColor="@color/navy"
-        android:textSize="16sp"
+        android:textSize="@dimen/big_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toTopOf="@+id/radioGroup" />
+        app:layout_constraintTop_toTopOf="@+id/radioGroup"
+        tools:ignore="RtlSymmetry" />
 
     <TextView
         android:id="@+id/dec_text"
         android:layout_width="0dp"
         android:layout_height="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/margin_mid"
         android:gravity="center|start"
-        android:padding="4dp"
-        android:paddingStart="16dp"
-        android:hint="0"
+        android:hint="@string/_0"
+        android:padding="@dimen/padding_small"
+        android:paddingStart="@dimen/padding_mid"
         android:textColor="@color/navy"
-        android:textSize="16sp"
+        android:textSize="@dimen/big_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/hex_text" />
+        app:layout_constraintTop_toBottomOf="@+id/hex_text"
+        tools:ignore="RtlSymmetry" />
 
     <TextView
         android:id="@+id/octal_text"
         android:layout_width="0dp"
         android:layout_height="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/margin_mid"
         android:gravity="center|start"
-        android:padding="4dp"
-        android:paddingStart="16dp"
-        android:hint="0"
+        android:hint="@string/_0"
+        android:padding="@dimen/padding_small"
+        android:paddingStart="@dimen/padding_mid"
         android:textColor="@color/navy"
-        android:textSize="16sp"
+        android:textSize="@dimen/big_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/dec_text" />
+        app:layout_constraintTop_toBottomOf="@+id/dec_text"
+        tools:ignore="RtlSymmetry" />
 
     <TextView
         android:id="@+id/binary_text"
         android:layout_width="0dp"
         android:layout_height="32dp"
+        android:layout_marginTop="@dimen/margin_mid"
         android:gravity="center|start"
-        android:padding="4dp"
-        android:paddingStart="16dp"
-        android:layout_marginTop="8dp"
-        android:hint="0"
+        android:hint="@string/_0"
+        android:padding="@dimen/padding_small"
+        android:paddingStart="@dimen/padding_mid"
         android:textColor="@color/navy"
-        android:textSize="16sp"
+        android:textSize="@dimen/big_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/octal_text" />
+        app:layout_constraintTop_toBottomOf="@+id/octal_text"
+        tools:ignore="RtlSymmetry" />
 
 
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="@dimen/margin_big"
         android:background="@drawable/view_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -142,10 +146,10 @@
     <Button
         android:id="@+id/button_F"
         style="@style/Button.Char"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="F"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_big"
         android:onClick="onClickNumber"
+        android:text="@string/f"
         app:backgroundTint="@color/red_300"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -154,10 +158,10 @@
     <Button
         android:id="@+id/button_E"
         style="@style/Button.Char"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="E"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
         android:onClick="onClickNumber"
+        android:text="@string/e"
         app:backgroundTint="@color/red_300"
         app:layout_constraintBottom_toTopOf="@id/button_F"
         app:layout_constraintStart_toStartOf="parent" />
@@ -165,10 +169,10 @@
     <Button
         android:id="@+id/button_D"
         style="@style/Button.Char"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="D"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
         android:onClick="onClickNumber"
+        android:text="@string/d"
         app:backgroundTint="@color/red_300"
         app:layout_constraintBottom_toTopOf="@id/button_E"
         app:layout_constraintStart_toStartOf="parent" />
@@ -176,10 +180,10 @@
     <Button
         android:id="@+id/button_C"
         style="@style/Button.Char"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="C"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
         android:onClick="onClickNumber"
+        android:text="@string/c"
         app:backgroundTint="@color/red_300"
         app:layout_constraintBottom_toTopOf="@id/button_D"
         app:layout_constraintStart_toStartOf="parent" />
@@ -187,10 +191,10 @@
     <Button
         android:id="@+id/button_B"
         style="@style/Button.Char"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="B"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
         android:onClick="onClickNumber"
+        android:text="@string/b"
         app:backgroundTint="@color/red_300"
         app:layout_constraintBottom_toTopOf="@id/button_C"
         app:layout_constraintStart_toStartOf="parent" />
@@ -199,11 +203,10 @@
     <Button
         android:id="@+id/button_A"
         style="@style/Button.Char"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="A"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
         android:onClick="onClickNumber"
-
+        android:text="@string/a"
         app:backgroundTint="@color/red_300"
         app:layout_constraintBottom_toTopOf="@id/button_B"
         app:layout_constraintStart_toStartOf="parent" />
@@ -211,11 +214,11 @@
     <Button
         android:id="@+id/left_bracket"
         style="@style/Button.Number"
-        android:layout_marginBottom="16dp"
-        android:text="("
-        app:backgroundTint="@color/red_200"
+        android:layout_marginBottom="@dimen/margin_big"
         android:onClick="onClickNumber"
+        android:text="@string/left_pracet"
         android:textColor="@color/white"
+        app:backgroundTint="@color/red_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_zero"
         app:layout_constraintStart_toEndOf="@+id/button_F" />
@@ -223,22 +226,23 @@
     <Button
         android:id="@+id/button_zero"
         style="@style/Button.Number"
-        android:layout_marginBottom="16dp"
-        android:text="0"
+        android:layout_marginBottom="@dimen/margin_big"
         android:onClick="onClickNumber"
+        android:text="@string/_0"
         app:backgroundTint="@color/red_50"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
         android:id="@+id/right_bracket"
         style="@style/Button.Number"
-        android:layout_marginStart="12dp"
-        android:layout_marginBottom="16dp"
-        android:text=")"
-        android:textColor="@color/white"
+        android:layout_marginStart="@dimen/margen_under_big"
+        android:layout_marginBottom="@dimen/margin_big"
         android:onClick="onClickNumber"
+        android:text="@string/right_pracet"
+        android:textColor="@color/white"
         app:backgroundTint="@color/red_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_result"
@@ -249,9 +253,9 @@
         android:id="@+id/button_result"
         style="@style/Button.Equal"
         android:layout_height="128dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="="
+        android:layout_marginEnd="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_big"
+        android:text="@string/equal"
         app:backgroundTint="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -260,9 +264,9 @@
     <Button
         android:id="@+id/button_num_one"
         style="@style/Button.Number"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="@dimen/margin_mid"
         android:onClick="onClickNumber"
-        android:text="1"
+        android:text="@string/one"
         app:backgroundTint="@color/red_50"
         app:layout_constraintBottom_toTopOf="@+id/left_bracket"
         app:layout_constraintEnd_toStartOf="@+id/button_zero"
@@ -272,10 +276,10 @@
     <Button
         android:id="@+id/button_num_two"
         style="@style/Button.Number"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="2"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
         android:onClick="onClickNumber"
+        android:text="@string/two"
         app:backgroundTint="@color/red_50"
         app:layout_constraintBottom_toTopOf="@+id/button_zero"
         app:layout_constraintStart_toEndOf="@+id/button_num_one" />
@@ -283,10 +287,10 @@
     <Button
         android:id="@+id/button_num_three"
         style="@style/Button.Number"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="3"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
         android:onClick="onClickNumber"
+        android:text="@string/three"
         app:backgroundTint="@color/red_50"
         app:layout_constraintBottom_toTopOf="@+id/left_bracket"
         app:layout_constraintStart_toEndOf="@+id/button_num_two" />
@@ -294,10 +298,10 @@
     <Button
         android:id="@+id/button_num_four"
         style="@style/Button.Number"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="4"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
         android:onClick="onClickNumber"
+        android:text="@string/four"
         app:backgroundTint="@color/red_50"
         app:layout_constraintBottom_toTopOf="@+id/button_num_one"
         app:layout_constraintStart_toEndOf="@+id/button_E" />
@@ -305,10 +309,10 @@
     <Button
         android:id="@+id/button_num_five"
         style="@style/Button.Number"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="5"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
         android:onClick="onClickNumber"
+        android:text="@string/five"
         app:backgroundTint="@color/red_50"
         app:layout_constraintBottom_toTopOf="@+id/button_num_two"
         app:layout_constraintStart_toEndOf="@+id/button_num_four" />
@@ -316,10 +320,10 @@
     <Button
         android:id="@+id/button_num_six"
         style="@style/Button.Number"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="6"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
         android:onClick="onClickNumber"
+        android:text="@string/six"
         app:backgroundTint="@color/red_50"
         app:layout_constraintBottom_toTopOf="@+id/button_num_three"
         app:layout_constraintStart_toEndOf="@+id/button_num_five" />
@@ -328,10 +332,10 @@
     <Button
         android:id="@+id/button_num_seven"
         style="@style/Button.Number"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="7"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
         android:onClick="onClickNumber"
+        android:text="@string/seven"
         app:backgroundTint="@color/red_50"
         app:layout_constraintBottom_toTopOf="@+id/button_num_four"
         app:layout_constraintStart_toEndOf="@+id/button_E" />
@@ -339,10 +343,10 @@
     <Button
         android:id="@+id/button_num_eight"
         style="@style/Button.Number"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="8"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
         android:onClick="onClickNumber"
+        android:text="@string/eight"
         app:backgroundTint="@color/red_50"
         app:layout_constraintBottom_toTopOf="@+id/button_num_five"
         app:layout_constraintStart_toEndOf="@+id/button_num_seven" />
@@ -350,10 +354,10 @@
     <Button
         android:id="@+id/button_num_nine"
         style="@style/Button.Number"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="9"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
         android:onClick="onClickNumber"
+        android:text="@string/nine"
         app:backgroundTint="@color/red_50"
         app:layout_constraintBottom_toTopOf="@+id/button_num_six"
         app:layout_constraintStart_toEndOf="@+id/button_num_eight" />
@@ -361,10 +365,10 @@
     <Button
         android:id="@+id/button_plus"
         style="@style/Button.Number"
-        android:layout_marginBottom="8dp"
-        android:text="+"
-        android:layout_marginEnd="16dp"
-        android:textColor="@color/white"
+        android:layout_marginEnd="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
+        android:text="@string/plus"
+        android:textColor="@color/navy"
         app:backgroundTint="@color/red_300"
         app:layout_constraintBottom_toTopOf="@+id/button_result"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -372,10 +376,10 @@
     <Button
         android:id="@+id/button_minus"
         style="@style/Button.Number"
-        android:layout_marginBottom="8dp"
-        android:text="-"
-        android:layout_marginEnd="16dp"
-        android:textColor="@color/white"
+        android:layout_marginEnd="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
+        android:text="@string/minus"
+        android:textColor="@color/navy"
         app:backgroundTint="@color/red_300"
         app:layout_constraintBottom_toTopOf="@+id/button_plus"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -383,10 +387,10 @@
     <Button
         android:id="@+id/button_div"
         style="@style/Button.Number"
-        android:layout_marginBottom="8dp"
-        android:text="/"
-        android:layout_marginEnd="16dp"
-        android:textColor="@color/white"
+        android:layout_marginEnd="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
+        android:text="@string/div"
+        android:textColor="@color/navy"
         app:backgroundTint="@color/red_300"
         app:layout_constraintBottom_toTopOf="@+id/button_minus"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -394,10 +398,10 @@
     <Button
         android:id="@+id/button_multi"
         style="@style/Button.Number"
-        android:layout_marginBottom="8dp"
-        android:text="*"
-        android:layout_marginEnd="16dp"
-        android:textColor="@color/white"
+        android:layout_marginEnd="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
+        android:text="@string/multi"
+        android:textColor="@color/navy"
         app:backgroundTint="@color/red_300"
         app:layout_constraintBottom_toTopOf="@+id/button_div"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -405,10 +409,11 @@
     <Button
         android:id="@+id/button_delete"
         style="@style/Button.Char"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="del"
-        android:textSize="14sp"
+        android:layout_marginEnd="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
+        android:text="@string/delete"
+        android:textColor="@color/white"
+        android:textSize="@dimen/mid_text"
         app:backgroundTint="@color/maroon"
         app:layout_constraintBottom_toTopOf="@+id/button_num_seven"
         app:layout_constraintEnd_toStartOf="@+id/button_div" />
@@ -416,11 +421,11 @@
     <Button
         android:id="@+id/button_delete_all"
         style="@style/Button.Char"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="CE"
-        android:textSize="18sp"
+        android:layout_marginEnd="@dimen/margin_big"
+        android:layout_marginBottom="@dimen/margin_mid"
+        android:text="@string/delete_all"
         android:textColor="@color/white"
+        android:textSize="@dimen/big_text"
         app:backgroundTint="@color/navy"
         app:layout_constraintBottom_toTopOf="@+id/button_num_seven"
         app:layout_constraintEnd_toStartOf="@+id/button_delete" />
@@ -428,8 +433,9 @@
     <Button
         android:id="@+id/button_present"
         style="@style/Button.Char"
-        android:layout_marginBottom="8dp"
-        android:text="%"
+        android:layout_marginBottom="@dimen/margin_mid"
+        android:text="@string/present"
+        android:textColor="@color/white"
         app:backgroundTint="@color/red_200"
         app:layout_constraintBottom_toTopOf="@+id/button_num_seven"
         app:layout_constraintEnd_toStartOf="@+id/button_delete_all"

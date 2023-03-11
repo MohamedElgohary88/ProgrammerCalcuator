@@ -4,8 +4,8 @@ package com.example.programmercalculator
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.addTextChangedListener
 import com.example.programmercalcuator.Operation
 import com.example.programmercalcuator.R
 import kotlinx.android.synthetic.main.activity_main.*
@@ -19,13 +19,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        text_input.addTextChangedListener {
-            convertBinary(text_input.toString())
-            convertDecimal(text_input.toString().toInt())
-            convertHex(text_input.toString())
-            convertOctal(text_input.toString())
-        }
-
         hex_radio_button.setOnClickListener {
             enableTwoNumbers()
             enableButtonsCharacters()
@@ -33,15 +26,18 @@ class MainActivity : AppCompatActivity() {
         }
         dec_radio_button.setOnClickListener {
             disableAllButtonsThatIsNotUsedInDecimal()
-            convertBinary(text_input.toString())
         }
         oct_radio_button.setOnClickListener {
             disableAllButtonsThatIsNotUsedInOctal()
         }
         bin_radio_button.setOnClickListener {
             disableAllButtonsThatIsNotUsedInBinary()
+            if (text_input.text.isNotEmpty()){
+                convertBinary(text_input.text.toString())
+            }else{
+                Toast.makeText(this,"enter Number ",Toast.LENGTH_SHORT).show()
+            }
         }
-
 
         /*       binary.setOnClickListener {
                val binary =  binary.text.toString()
@@ -76,8 +72,8 @@ class MainActivity : AppCompatActivity() {
             prepareOperation(Operation.Multi)
         }
         button_result.setOnClickListener {
-            val result = doCurrentOperation()
-            text_input.text = result.toString()
+        //    val result = doCurrentOperation()
+          //  text_input.text = result.toString()
         }
 
         button_delete.setOnClickListener {
@@ -87,6 +83,47 @@ class MainActivity : AppCompatActivity() {
             clearAllText()
         }
     }
+
+    private fun convertBinary(binary: String) {
+        val decimal = Integer.parseInt(binary, 2)
+        val hexadecimal = Integer.toHexString(decimal).uppercase(Locale.getDefault())
+        val octal = Integer.toOctalString(decimal)
+        hex_text.text = hexadecimal
+        octal_text.text = octal.toString()
+        dec_text.text = decimal.toString()
+        binary_text.text = binary
+    }
+
+    private fun convertHex(hexadecimal: String) {
+        val decimal = Integer.parseInt(hexadecimal, 16)
+        val binary = Integer.toBinaryString(decimal)
+        val octal = Integer.toOctalString(decimal)
+        hex_text.text = hexadecimal
+        dec_text.text = decimal.toString()
+        binary_text.text = binary
+        octal_text.text = octal
+    }
+
+    private fun convertDecimal(decimal: Int) {
+        val binary = Integer.toBinaryString(decimal)
+        val hexadecimal = Integer.toHexString(decimal).uppercase(Locale.getDefault())
+        val octal = Integer.toOctalString(decimal)
+        hex_text.text = hexadecimal
+        dec_text.text = decimal.toString()
+        binary_text.text = binary
+        octal_text.text = octal
+    }
+
+    private fun convertOctal(octal: String) {
+        val decimal = Integer.parseInt(octal, 8)
+        val binary = Integer.toBinaryString(decimal)
+        val hexadecimal = Integer.toHexString(decimal).uppercase(Locale.getDefault())
+        hex_text.text = hexadecimal
+        dec_text.text = decimal.toString()
+        binary_text.text = binary
+        octal_text.text = octal
+    }
+
 
     private fun doCurrentOperation(): Int {
         val secondNumber = text_input.text.toString().toInt()
@@ -174,45 +211,5 @@ class MainActivity : AppCompatActivity() {
         button_num_four.isEnabled = false
         button_num_three.isEnabled = false
         button_num_two.isEnabled = false
-    }
-
-    private fun convertBinary(binary: String) {
-        val decimal = Integer.parseInt(binary, 2)
-        val hexadecimal = Integer.toHexString(decimal).uppercase(Locale.getDefault())
-        val octal = Integer.toOctalString(decimal)
-        hex_text.text = hexadecimal
-        octal_text.text = octal.toString()
-        dec_text.text = decimal.toString()
-        binary_text.text = binary
-    }
-
-    private fun convertHex(hexadecimal: String) {
-        val decimal = Integer.parseInt(hexadecimal, 16)
-        val binary = Integer.toBinaryString(decimal)
-        val octal = Integer.toOctalString(decimal)
-        hex_text.text = hexadecimal
-        dec_text.text = decimal.toString()
-        binary_text.text = binary
-        octal_text.text = octal
-    }
-
-    private fun convertDecimal(decimal: Int) {
-        val binary = Integer.toBinaryString(decimal)
-        val hexadecimal = Integer.toHexString(decimal).uppercase(Locale.getDefault())
-        val octal = Integer.toOctalString(decimal)
-        hex_text.text = hexadecimal
-        dec_text.text = decimal.toString()
-        binary_text.text = binary
-        octal_text.text = octal
-    }
-
-    private fun convertOctal(octal: String) {
-        val decimal = Integer.parseInt(octal, 8)
-        val binary = Integer.toBinaryString(decimal)
-        val hexadecimal = Integer.toHexString(decimal).uppercase(Locale.getDefault())
-        hex_text.text = hexadecimal
-        dec_text.text = decimal.toString()
-        binary_text.text = binary
-        octal_text.text = octal
     }
 }
