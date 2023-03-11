@@ -4,15 +4,436 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/red_50"
     tools:context=".MainActivity">
 
+
     <TextView
+        android:id="@+id/text_input"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/text_view_background"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/left_bracket"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input"
+        app:layout_constraintVertical_bias="0.043">
+
+        <RadioButton
+            android:id="@+id/hex_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:text="Hex"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/dec_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginTop="8dp"
+            android:text="Dec"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/oct_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginTop="8dp"
+            android:text="Oct"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/bin_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:text="Bin"
+            android:layout_marginTop="8dp"
+            tools:ignore="TouchTargetSizeCheck" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/hex_text"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:gravity="center|start"
+        android:padding="4dp"
+        android:paddingStart="16dp"
+        android:hint="0"
+        android:textColor="@color/navy"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toTopOf="@+id/radioGroup" />
+
+    <TextView
+        android:id="@+id/dec_text"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|start"
+        android:padding="4dp"
+        android:paddingStart="16dp"
+        android:hint="0"
+        android:textColor="@color/navy"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/hex_text" />
+
+    <TextView
+        android:id="@+id/octal_text"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|start"
+        android:padding="4dp"
+        android:paddingStart="16dp"
+        android:hint="0"
+        android:textColor="@color/navy"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/dec_text" />
+
+    <TextView
+        android:id="@+id/binary_text"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:gravity="center|start"
+        android:padding="4dp"
+        android:paddingStart="16dp"
+        android:layout_marginTop="8dp"
+        android:hint="0"
+        android:textColor="@color/navy"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/octal_text" />
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/view_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <Button
+        android:id="@+id/button_F"
+        style="@style/Button.Char"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="F"
+        android:onClick="onClickNumber"
+        app:backgroundTint="@color/red_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Button
+        android:id="@+id/button_E"
+        style="@style/Button.Char"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="E"
+        android:onClick="onClickNumber"
+        app:backgroundTint="@color/red_300"
+        app:layout_constraintBottom_toTopOf="@id/button_F"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_D"
+        style="@style/Button.Char"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="D"
+        android:onClick="onClickNumber"
+        app:backgroundTint="@color/red_300"
+        app:layout_constraintBottom_toTopOf="@id/button_E"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_C"
+        style="@style/Button.Char"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="C"
+        android:onClick="onClickNumber"
+        app:backgroundTint="@color/red_300"
+        app:layout_constraintBottom_toTopOf="@id/button_D"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_B"
+        style="@style/Button.Char"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="B"
+        android:onClick="onClickNumber"
+        app:backgroundTint="@color/red_300"
+        app:layout_constraintBottom_toTopOf="@id/button_C"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Button
+        android:id="@+id/button_A"
+        style="@style/Button.Char"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="A"
+        android:onClick="onClickNumber"
+
+        app:backgroundTint="@color/red_300"
+        app:layout_constraintBottom_toTopOf="@id/button_B"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/left_bracket"
+        style="@style/Button.Number"
+        android:layout_marginBottom="16dp"
+        android:text="("
+        app:backgroundTint="@color/red_200"
+        android:onClick="onClickNumber"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_zero"
+        app:layout_constraintStart_toEndOf="@+id/button_F" />
+
+    <Button
+        android:id="@+id/button_zero"
+        style="@style/Button.Number"
+        android:layout_marginBottom="16dp"
+        android:text="0"
+        android:onClick="onClickNumber"
+        app:backgroundTint="@color/red_50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/right_bracket"
+        style="@style/Button.Number"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="16dp"
+        android:text=")"
+        android:textColor="@color/white"
+        android:onClick="onClickNumber"
+        app:backgroundTint="@color/red_200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_result"
+        app:layout_constraintHorizontal_bias="0.277"
+        app:layout_constraintStart_toEndOf="@+id/button_zero" />
+
+    <Button
+        android:id="@+id/button_result"
+        style="@style/Button.Equal"
+        android:layout_height="128dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="="
+        app:backgroundTint="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <Button
+        android:id="@+id/button_num_one"
+        style="@style/Button.Number"
+        android:layout_marginBottom="8dp"
+        android:onClick="onClickNumber"
+        android:text="1"
+        app:backgroundTint="@color/red_50"
+        app:layout_constraintBottom_toTopOf="@+id/left_bracket"
+        app:layout_constraintEnd_toStartOf="@+id/button_zero"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toEndOf="@+id/button_E" />
+
+    <Button
+        android:id="@+id/button_num_two"
+        style="@style/Button.Number"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="2"
+        android:onClick="onClickNumber"
+        app:backgroundTint="@color/red_50"
+        app:layout_constraintBottom_toTopOf="@+id/button_zero"
+        app:layout_constraintStart_toEndOf="@+id/button_num_one" />
+
+    <Button
+        android:id="@+id/button_num_three"
+        style="@style/Button.Number"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="3"
+        android:onClick="onClickNumber"
+        app:backgroundTint="@color/red_50"
+        app:layout_constraintBottom_toTopOf="@+id/left_bracket"
+        app:layout_constraintStart_toEndOf="@+id/button_num_two" />
+
+    <Button
+        android:id="@+id/button_num_four"
+        style="@style/Button.Number"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="4"
+        android:onClick="onClickNumber"
+        app:backgroundTint="@color/red_50"
+        app:layout_constraintBottom_toTopOf="@+id/button_num_one"
+        app:layout_constraintStart_toEndOf="@+id/button_E" />
+
+    <Button
+        android:id="@+id/button_num_five"
+        style="@style/Button.Number"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="5"
+        android:onClick="onClickNumber"
+        app:backgroundTint="@color/red_50"
+        app:layout_constraintBottom_toTopOf="@+id/button_num_two"
+        app:layout_constraintStart_toEndOf="@+id/button_num_four" />
+
+    <Button
+        android:id="@+id/button_num_six"
+        style="@style/Button.Number"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="6"
+        android:onClick="onClickNumber"
+        app:backgroundTint="@color/red_50"
+        app:layout_constraintBottom_toTopOf="@+id/button_num_three"
+        app:layout_constraintStart_toEndOf="@+id/button_num_five" />
+
+
+    <Button
+        android:id="@+id/button_num_seven"
+        style="@style/Button.Number"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="7"
+        android:onClick="onClickNumber"
+        app:backgroundTint="@color/red_50"
+        app:layout_constraintBottom_toTopOf="@+id/button_num_four"
+        app:layout_constraintStart_toEndOf="@+id/button_E" />
+
+    <Button
+        android:id="@+id/button_num_eight"
+        style="@style/Button.Number"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="8"
+        android:onClick="onClickNumber"
+        app:backgroundTint="@color/red_50"
+        app:layout_constraintBottom_toTopOf="@+id/button_num_five"
+        app:layout_constraintStart_toEndOf="@+id/button_num_seven" />
+
+    <Button
+        android:id="@+id/button_num_nine"
+        style="@style/Button.Number"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="9"
+        android:onClick="onClickNumber"
+        app:backgroundTint="@color/red_50"
+        app:layout_constraintBottom_toTopOf="@+id/button_num_six"
+        app:layout_constraintStart_toEndOf="@+id/button_num_eight" />
+
+    <Button
+        android:id="@+id/button_plus"
+        style="@style/Button.Number"
+        android:layout_marginBottom="8dp"
+        android:text="+"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/red_300"
+        app:layout_constraintBottom_toTopOf="@+id/button_result"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_minus"
+        style="@style/Button.Number"
+        android:layout_marginBottom="8dp"
+        android:text="-"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/red_300"
+        app:layout_constraintBottom_toTopOf="@+id/button_plus"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_div"
+        style="@style/Button.Number"
+        android:layout_marginBottom="8dp"
+        android:text="/"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/red_300"
+        app:layout_constraintBottom_toTopOf="@+id/button_minus"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_multi"
+        style="@style/Button.Number"
+        android:layout_marginBottom="8dp"
+        android:text="*"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/red_300"
+        app:layout_constraintBottom_toTopOf="@+id/button_div"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_delete"
+        style="@style/Button.Char"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="del"
+        android:textSize="14sp"
+        app:backgroundTint="@color/maroon"
+        app:layout_constraintBottom_toTopOf="@+id/button_num_seven"
+        app:layout_constraintEnd_toStartOf="@+id/button_div" />
+
+    <Button
+        android:id="@+id/button_delete_all"
+        style="@style/Button.Char"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="CE"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/navy"
+        app:layout_constraintBottom_toTopOf="@+id/button_num_seven"
+        app:layout_constraintEnd_toStartOf="@+id/button_delete" />
+
+    <Button
+        android:id="@+id/button_present"
+        style="@style/Button.Char"
+        android:layout_marginBottom="8dp"
+        android:text="%"
+        app:backgroundTint="@color/red_200"
+        app:layout_constraintBottom_toTopOf="@+id/button_num_seven"
+        app:layout_constraintEnd_toStartOf="@+id/button_delete_all"
+        app:layout_constraintStart_toEndOf="@+id/button_B" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
