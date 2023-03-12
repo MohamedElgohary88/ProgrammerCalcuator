@@ -133,6 +133,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun deleteAllText() {
         inputText.text = ""
+        decimalTextView.text = ""
+        binaryTextView.text = ""
+        octalTextView.text = ""
+        hexadecimalTextView.text = ""
     }
 
     private fun deleteLastDigit() {
@@ -238,7 +242,6 @@ class MainActivity : AppCompatActivity() {
         buttonNumFour.isEnabled = false
         buttonNumThree.isEnabled = false
         buttonNumTwo.isEnabled = false
-
     }
 }
 

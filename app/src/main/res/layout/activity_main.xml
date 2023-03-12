@@ -31,6 +31,7 @@
         android:clickable="false"
         android:textColor="@color/navy"
         android:textSize="@dimen/big_text"
+        android:gravity="center|start"
         android:keyboardNavigationCluster="false"
         android:hint="@string/your_enter_number"
         app:layout_constraintStart_toStartOf="parent"
