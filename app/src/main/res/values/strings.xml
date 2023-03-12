@@ -30,4 +30,19 @@
     <string name="delete">del</string>
     <string name="delete_all">CE</string>
     <string name="present">%</string>
+    <string name="my_spinner_description">description</string>
+
+    <string name="selected_item">Selected item:</string>
+    <string name="your_enter_number">your enter number</string>
+    <string name="decimal">Decimal</string>
+    <string name="hexadecimal">HexaDecimal</string>
+    <string name="octal">Octal</string>
+    <string name="binary">Binary</string>
+    <string-array name="my_spinner_choices">
+        <item>Binary</item>
+        <item>HexaDecimal</item>
+        <item>Decimal</item>
+        <item>Octal</item>
+    </string-array>
+
 </resources>
