@@ -34,7 +34,6 @@
         android:textSize="@dimen/big_text"
         android:background="@drawable/background_text_input"
         android:gravity="center|start"
-        android:keyboardNavigationCluster="false"
         android:hint="@string/your_enter_number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/my_spinner"
