@@ -23,7 +23,6 @@
         app:layout_constraintTop_toBottomOf="@+id/binary_text_view"
         tools:ignore="TouchTargetSizeCheck" />
 
-
     <TextView
         android:id="@+id/editText"
         android:layout_width="match_parent"
@@ -31,7 +30,9 @@
         android:layout_margin="@dimen/margin_big"
         android:clickable="false"
         android:textColor="@color/navy"
+        android:padding="@dimen/padding_small"
         android:textSize="@dimen/big_text"
+        android:background="@drawable/background_text_input"
         android:gravity="center|start"
         android:keyboardNavigationCluster="false"
         android:hint="@string/your_enter_number"
@@ -57,13 +58,8 @@
         android:id="@+id/decimal_text_view"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginStart="@dimen/margin_big"
-        android:layout_marginEnd="@dimen/margin_big"
-        android:gravity="start|center"
         android:hint="@string/decimal"
-        android:textColor="@color/navy"
-        android:textColorHint="@color/navy"
-        android:textSize="@dimen/big_text"
+        style="@style/TextResult"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hexadecimal_text_view" />
@@ -73,15 +69,8 @@
         android:id="@+id/hexadecimal_text_view"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginTop="@dimen/margin_big"
-        android:layout_marginStart="@dimen/margin_big"
-        android:layout_marginEnd="@dimen/margin_big"
-        android:gravity="start|center"
-        android:textAllCaps="true"
+        style="@style/TextResult"
         android:hint="@string/hexadecimal"
-        android:textColor="@color/navy"
-        android:textColorHint="@color/navy"
-        android:textSize="@dimen/big_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -90,29 +79,18 @@
         android:id="@+id/binary_text_view"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginStart="@dimen/margin_big"
-        android:layout_marginEnd="@dimen/margin_big"
-        android:gravity="start|center"
+        style="@style/TextResult"
         android:hint="@string/binary"
-        android:textColor="@color/navy"
-        android:textColorHint="@color/navy"
-        android:textSize="@dimen/big_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/octal_text_view" />
-
 
     <TextView
         android:id="@+id/octal_text_view"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginStart="@dimen/margin_big"
-        android:layout_marginEnd="@dimen/margin_big"
-        android:gravity="start|center"
+        style="@style/TextResult"
         android:hint="@string/octal"
-        android:textColor="@color/navy"
-        android:textColorHint="@color/navy"
-        android:textSize="@dimen/big_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/decimal_text_view" />
