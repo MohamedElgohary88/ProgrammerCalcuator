@@ -117,7 +117,6 @@ class MainActivity : AppCompatActivity() {
         deleteAllText.setOnClickListener {
             deleteAllText()
         }
-
     }
 
     private fun setText(bin: String, dec: Long, hex: String, oct: String) {
